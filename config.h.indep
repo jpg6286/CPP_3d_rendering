@@ -1,0 +1,2 @@
+#define OpenGl_Project_VERSION_MAJOR @OpenGl_Project_VERSION_MAJOR@
+#define OpenGl_Project_VERSION_MINOR @OpenGl_Project_VERSION_MINOR@
