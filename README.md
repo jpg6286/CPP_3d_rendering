@@ -1,6 +1,6 @@
 # CPP 3D Renderer
 
-Currently working on a readme, please note this is an amature project in progress.
+Please note this is an amature project in progress. I've been working on this code for a while, however (thanks to switching to a linux OS, I've had to figure out the magical workings of github. 
 
 ## Dependencies
 - OpenGL
