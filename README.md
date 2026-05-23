@@ -8,12 +8,6 @@ Currently working on a readme, please note this is an amature project in progres
 - C++23
 
 ## Building
-\```bash
-mkdir build && cd build
-cmake ..
-make
-./Renderer3D
-\```
 
 ## Controls
 | Input | Action |
