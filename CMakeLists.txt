@@ -1,14 +1,32 @@
->>>>>>> db06b04a293e6b61ac1ff1186624dfb10c62f19b
 cmake_minimum_required(VERSION 3.10)
-project(OpenGl_Project
-VERSION 0.1
-DESCRIPTION "Physics")
-set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 1)
-find_path(GLUT_INCLUDE_DIR NAMES GL/glut.h PATHS /usr/include)
-find_library(GLUT_LIBRARY glut PATHS /usr/lib)
+project(Renderer3D VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+if(POLICY CMP0072)
+    cmake_policy(SET CMP0072 NEW)
+endif()
+
 find_package(OpenGL REQUIRED)
-add_executable(${PROJECT_NAME} main.cpp physics_engine.cpp OpenGL_render.cpp)
+find_package(GLUT REQUIRED)
+
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+    src/physics_engine.cpp
+    src/OpenGL_render.cpp
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    include
+    ${GLUT_INCLUDE_DIRS}
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    ${GLUT_LIBRARIES}
+    OpenGL::GL
+    OpenGL::GLU
+)
+
 configure_file(config.h.in config.h)
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}" ${GLUT_INCLUDE_DIR})
-target_link_libraries(${PROJECT_NAME} ${GLUT_LIBRARY} OpenGL::GL OpenGL::GLU)

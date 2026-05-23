@@ -1,4 +1,6 @@
 build/
+.vscode/
+*.code-workspace
 *.o
 *.obj
 *.exe
@@ -6,3 +8,5 @@ build/
 *.so
 *.dylib
 *.log
+*.swp
+*~
